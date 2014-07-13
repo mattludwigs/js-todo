@@ -1,4 +1,5 @@
 {
+"predef" : ["define", "require"],
  "indent": 2,
  "browser": true,
  "strict": true,
