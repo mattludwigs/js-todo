@@ -1,46 +1,36 @@
-'use strict';
+define(['AddButton', 'Input', 'DeleteButton'], function (AddButton, Input, DeleteButton) {
+  'use strict';
 
-// only global app var
-var app;
+  function ToDoApp() {
+    this.version = "0.1.0";
+    this.button = AddButton;
+    this.input = Input;
+    this.delete = DeleteButton;
+  }
 
-function ToDoList() {
-  this.version = "0.1.0";
-  this.button = '';
-  this.input = '';
-  this.delete = '';
-}
+  ToDoApp.prototype.init = function () {
+    this.initEvents();
+  };
 
-ToDoList.prototype.init = function () {
-  this.buildObjs();
-  this.initEvents();
-};
+  ToDoApp.prototype.initEvents = function () {
+    var button,
+        input,
+        dlete;
 
-ToDoList.prototype.buildObjs = function () {
-  // Instantiate New App Objects
-  this.button = new AddButton('add-button');
-  this.input = new Input('todo');
-  this.delete = new DeleteButton('delete-button');
-};
+    // Store in var so they different properties play nicely with each other
+    button = this.button;
+    input = this.input;
+    dlete = this.delete;
 
-ToDoList.prototype.initEvents = function () {
-  var button,
-      input,
-      dlete;
+    // Save event, gets value from input via callback
+    button.save(function () {
+      return input.getValue();
+    });
 
-  // Store in var so they different properties play nicely with each other
-  button = this.button;
-  input = this.input;
-  dlete = this.delete;
+    // Deleete Button event, wipes out localStorage
+    dlete.clearStorage();
+  };
 
-  // Save event, gets value from input via callback
-  button.save(function () {
-    return input.getValue();
-  });
+  return new ToDoApp();
 
-  // Deleete Button event, wipes out localStorage
-  dlete.clearStorage();
-};
-
-// Instantiate ToDoList and launch App
-app = new ToDoList();
-app.init();
+});
