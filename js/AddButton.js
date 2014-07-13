@@ -1,42 +1,49 @@
-'use strict';
+define(function () {
 
-function AddButton(elem) {
-  this.elem = elem;
-}
+  'use strict';
 
-AddButton.prototype.getElem = function () {
-  return document.getElementById(this.elem);
-};
+  function AddButton(elem) {
+    this.elem = elem;
+  }
 
-// Save using callback to interact with methods from other objects
-AddButton.prototype.save = function (cb) {
-  var self = this;
-
-  this.getElem().onclick = function () {
-    var value = cb();
-    self.validStroage(value);
+  AddButton.prototype.getElem = function () {
+    return document.getElementById(this.elem);
   };
-};
 
-AddButton.prototype.validStroage = function (value) {
-  var count = 0;
+  // Save using callback to interact with methods from other objects
+  AddButton.prototype.save = function (cb) {
+    var self = this;
 
-  if (value !== '') {
-    localStorage.setItem("todo" + count, value);
-    // add logical to check todo count
-    count += 1;
-    this.displayToDos();
-  } else {
-    throw new Error("Must have something todo");
-  }
-};
+    this.getElem().onclick = function () {
+      var value = cb();
+      self.validStroage(value);
+    };
+  };
 
-AddButton.prototype.displayToDos = function () {
-  var i;
+  AddButton.prototype.validStroage = function (value) {
+    var count = 0;
 
-  // for every todo in localStorage
-  for (i = 0; i < localStorage.length; i += 1) {
-    // actually display localStroage
-    console.log('check');
-  }
-};
+    if (value !== '') {
+      localStorage.setItem("todo" + count, value);
+      // add logical to check todo count
+      count += 1;
+      this.displayToDos();
+    } else {
+      throw new Error("Must have something todo");
+    }
+  };
+
+  AddButton.prototype.displayToDos = function () {
+    var i;
+
+    // for every todo in localStorage
+    for (i = 0; i < localStorage.length; i += 1) {
+      // actually display localStroage
+      console.log('check');
+    }
+  };
+
+
+  return new AddButton('add-button');
+
+});
