@@ -1,9 +1,10 @@
-define(function () {
+define(['Input'], function (Input) {
 
   'use strict';
 
   function AddButton(elem) {
     this.elem = elem;
+    this.inputValue = Input.getValue();
   }
 
   AddButton.prototype.getElem = function () {
@@ -34,15 +35,16 @@ define(function () {
   };
 
   AddButton.prototype.displayToDos = function () {
-    var i;
+    var i, div;
+    div = document.getElementById('todo-list');
 
     // for every todo in localStorage
     for (i = 0; i < localStorage.length; i += 1) {
       // actually display localStroage
       console.log('check');
+      div.innerHTML = localStorage.todo0;
     }
   };
-
 
   return new AddButton('add-button');
 
