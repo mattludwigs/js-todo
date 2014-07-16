@@ -35,14 +35,12 @@ define(['Input'], function (Input) {
   };
 
   AddButton.prototype.displayToDos = function () {
-    var i, div;
-    div = document.getElementById('todo-list');
+    var i;
 
     // for every todo in localStorage
     for (i = 0; i < localStorage.length; i += 1) {
       // actually display localStroage
       console.log('check');
-      div.innerHTML = localStorage.todo0;
     }
   };
 

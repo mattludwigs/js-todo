@@ -1,4 +1,4 @@
-define(['AddButton', 'Input', 'DeleteButton'], function (AddButton, Input, DeleteButton) {
+define(['AddButton', 'Input', 'DeleteButton', 'List'], function (AddButton, Input, DeleteButton, List) {
   'use strict';
 
   function ToDoApp() {
@@ -10,6 +10,9 @@ define(['AddButton', 'Input', 'DeleteButton'], function (AddButton, Input, Delet
 
   ToDoApp.prototype.init = function () {
     this.initEvents();
+    // Below code is used for testing
+    console.log(List.getListElem());
+    List.makeNewListItem();
   };
 
   ToDoApp.prototype.initEvents = function () {
