@@ -1,4 +1,4 @@
-define(['Input'], function (Input) {
+define(['Input', 'List'], function (Input, List) {
 
   'use strict';
 

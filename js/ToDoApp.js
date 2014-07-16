@@ -6,13 +6,14 @@ define(['AddButton', 'Input', 'DeleteButton', 'List'], function (AddButton, Inpu
     this.button = AddButton;
     this.input = Input;
     this.delete = DeleteButton;
+    this.list = List;
   }
 
   ToDoApp.prototype.init = function () {
     this.initEvents();
+    this.list.initList();
     // Below code is used for testing
     console.log(List.getListElem());
-    List.makeNewListItem();
   };
 
   ToDoApp.prototype.initEvents = function () {
