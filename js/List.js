@@ -1,4 +1,6 @@
-define(function () {
+define(['Utils'],
+
+  function (Util) {
 
   'use strict';
 
@@ -19,12 +21,12 @@ define(function () {
       this.list.appendChild(listElem);
       this.list.childNodes[i].setAttribute('class', 'list-elem panel-body');
       listElem = document.querySelectorAll('.list-elem')[i];
-      listElem.innerHTML = 'Hello';
+      listElem.innerHTML = Util.storageLoop();
 
       // Use console.log just for testing
       // console.log(this.list.childNodes[i]);
       console.log(listElem);
-      console.log(localStorage);
+      // console.log();
     }
   };
 
