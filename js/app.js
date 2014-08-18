@@ -1,4 +1,4 @@
-(function (Events) {
+(function (Events, ToDo) {
 
 	function main() {
 
@@ -9,9 +9,11 @@
 		});
 
 		eventObj.init();
+
+
 	}
 
 	main();
 
 
-})(window.Events)
+})(Events, ToDo);
