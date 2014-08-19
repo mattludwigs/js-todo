@@ -1,4 +1,4 @@
-(function (Events) {
+(function () {
 
 	function Events (options) {
 		this.options = options;
@@ -12,16 +12,24 @@
 		},
 
 		addEvent: function () {
-			var addButton = document.getElementById(this.options.addButton);
+			var addButton = document.getElementById(this.options.addButton),
+					elem = this.options.todo,
+					dis = this.options.display;
+
 			addButton.addEventListener("click", function () {
-				console.log(addButton);
+				localStorage.setItem(elem.getValue(), elem.getValue());
+				dis.addToDo();
 			});
 		},
 
 		deleteEvent: function () {
-			var deleteButton = document.getElementById(this.options.deleteButton);
+			var deleteButton = document.getElementById(this.options.deleteButton),
+					dis = this.options.display;
+
 			deleteButton.addEventListener("click", function () {
-				console.log(deleteButton);
+				localStorage.clear();
+				dis.displayElem().innerHTML = "";
+				dis.none();
 			});
 		}
 
