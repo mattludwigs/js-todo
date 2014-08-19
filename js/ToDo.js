@@ -12,10 +12,13 @@
 
     HTMLElem: function () {
       return document.getElementById(this.todo);
+    },
+
+    clearValue: function () {
+      document.getElementById(this.todo).value = "";
     } 
 
   }
-
 
   window.ToDo = ToDo;
 

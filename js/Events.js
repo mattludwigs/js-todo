@@ -1,4 +1,4 @@
-(function (Events, ToDo) {
+(function () {
 
 	function Events (options) {
 		this.options = options;
@@ -7,31 +7,33 @@
 	Events.prototype = {
 
 		init: function () {
-			this.toDoObj = new ToDo("todo");
 			this.addEvent();
 			this.deleteEvent();
 		},
 
 		addEvent: function () {
 			var addButton = document.getElementById(this.options.addButton),
-					elem = this.toDoObj;
-
-					console.log(document.getElementById(this.toDoObj.todo));
+					elem = this.options.todo,
+					dis = this.options.display;
 
 			addButton.addEventListener("click", function () {
-				console.log(addButton);
 				localStorage.setItem(elem.getValue(), elem.getValue());
+				dis.addToDo();
 			});
 		},
 
 		deleteEvent: function () {
-			var deleteButton = document.getElementById(this.options.deleteButton);
+			var deleteButton = document.getElementById(this.options.deleteButton),
+					dis = this.options.display;
+
 			deleteButton.addEventListener("click", function () {
-				console.log(deleteButton);
+				localStorage.clear();
+				dis.displayElem().innerHTML = "";
+				dis.none();
 			});
 		}
 
 	}
 
 	window.Events = Events;
-})(window.Events = window.Events || {}, ToDo);
+})(window.Events = window.Events || {});
