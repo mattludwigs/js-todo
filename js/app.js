@@ -1,13 +1,14 @@
 (function (Events, ToDo, Display) {
 
 	function main() {
+
 		// common objects for todo appp
 		var todo = new ToDo("todo");
 		var display = new Display("todo-list", {
 			todo: todo
 		});
 
-		// Init Events for 
+		// Create Event Obj
 		var eventObj = new Events({
 			addButton: "add-button",
 			deleteButton: "delete-button",
