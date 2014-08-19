@@ -1,1 +1,10 @@
 See Develop Branch for must recent code
+
+
+To use run:
+
+```
+bower install
+```
+
+in terminal to start
